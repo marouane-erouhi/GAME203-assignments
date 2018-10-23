@@ -25,15 +25,18 @@
     <Filter Include="Header Files\UI">
       <UniqueIdentifier>{826352a2-8150-4571-a087-11f10c60e99d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\SCENES">
+      <UniqueIdentifier>{1a7c4229-4166-40f4-8f61-f29b270e0885}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SCENES">
+      <UniqueIdentifier>{d475b260-b1ef-420a-a0ea-26f36a8eef94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene0.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
@@ -60,15 +63,21 @@
     <ClCompile Include="UIManager.cpp">
       <Filter>Source Files\UI</Filter>
     </ClCompile>
+    <ClCompile Include="JSONFileLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene0.cpp">
+      <Filter>Source Files\SCENES</Filter>
+    </ClCompile>
+    <ClCompile Include="scene1.cpp">
+      <Filter>Source Files\SCENES</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene0.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
@@ -104,6 +113,15 @@
     <ClInclude Include="UIManager.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="JSONFileLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene0.h">
+      <Filter>Header Files\SCENES</Filter>
+    </ClInclude>
+    <ClInclude Include="scene1.h">
+      <Filter>Header Files\SCENES</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="ball.png">
@@ -114,5 +132,13 @@
     <Font Include="OpenSans-Regular.ttf">
       <Filter>Resource Files</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dota2ui.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="overwatchui.json">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

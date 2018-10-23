@@ -24,4 +24,5 @@ public:
 	void setText(std::string newText);
 	void setFontSize(int x);
 	void setColor(SDL_Color newColor);
+	void setSize(int newSize);
 };

@@ -3,7 +3,7 @@
 UIContainer::UIContainer() {}
 
 void UIContainer::OnCreate() {
-	m_elements = std::unordered_map<const char*, UIElement*>();
+	m_elements = std::unordered_map<std::string, UIElement*>();
 }
 
 void UIContainer::OnDestroy() {
@@ -53,7 +53,7 @@ UIContainer * UIContainer::Dota2UIFactory(SDL_Renderer* renderer) {
 		new ImageUIElement("shop_button", "images/dota2/shop_button.png", renderer, MATH::Vec3(4.5f,-4.6f,1.0f))
 	);
 	auto t = new ImageUIElement("shop", "images/dota2/shop.png", renderer, MATH::Vec3(3.15f, 0.6f, 1.0f));
-	t->disable();
+	t->setEnable(false);
 	a->AddElement(
 		t
 	);
@@ -83,7 +83,7 @@ UIContainer * UIContainer::OverwatchUIFactory(SDL_Renderer * renderer) {
 		new TextUIElement("ult_counter", "0%", renderer, MATH::Vec3(0.0f,-2.0f,1.0f))
 	);
 	auto c = new ImageUIElement("ult_full", "images/overwatch/full_ult.png", renderer, MATH::Vec3(0.0f, -2.0f, 1.0f));
-	c->disable();//disabled by default
+	c->setEnable(false);//disabled by default
 	a->AddElement(c);
 
 	auto d = new TextUIElement("instructions", "Press 'space' to charge ULT, Then press 'E' to use it", renderer, MATH::Vec3(-1.5, 4.0f, 1.0f));

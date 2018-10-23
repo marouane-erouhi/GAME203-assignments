@@ -1,0 +1,63 @@
+{
+  "elements": [
+    {
+      "type": "ImageEllement",
+      "id": "crosshair",
+      "pos": {
+        "x": 0,
+        "y": 0,
+        "z": 1.0
+      },
+      "enabled": true,
+      "imageName": "images/overwatch/crosshair.png"
+    },
+    {
+      "type": "ImageEllement",
+      "id": "character_portrait",
+      "pos": {
+        "x": 0,
+        "y": -4.5,
+        "z": 1.0
+      },
+      "enabled": true,
+      "imageName": "images/overwatch/character_portrait.png"
+    },
+    {
+      "type": "textEllement",
+      "id": "ult_counter",
+      "pos": {
+        "x": 0,
+        "y": -2.0,
+        "z": 1.0
+      },
+      "enabled": true,
+      "text": "0%",
+      "fontName": "OpenSans-Regular.ttf",
+      "size": 16
+    },
+    {
+      "type": "ImageEllement",
+      "id": "ult_full",
+      "pos": {
+        "x": 0,
+        "y": -2,
+        "z": 1.0
+      },
+      "enabled": true,
+      "imageName": "images/overwatch/full_ult.png"
+    },
+    {
+      "type": "textEllement",
+      "id": "instructions",
+      "pos": {
+        "x": -1.5,
+        "y": 4.0,
+        "z": 1.0
+      },
+      "enabled": true,
+      "text": "Press 'space' to charge ULT, Then press 'E' to use it",
+      "fontName": "OpenSans-Regular.ttf",
+      "size": 16
+    }
+  ]
+}

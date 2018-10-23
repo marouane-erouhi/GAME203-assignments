@@ -75,19 +75,19 @@ void Scene0::toggleShop() {
 	auto temp = (ImageUIElement*)UIManager::getInstance()->getUI()->getElement("shop");
 	if (temp != nullptr) {
 		if (temp->Enabled()) {
-			temp->disable();
+			temp->setEnable(false);
 		}
 		else {
-			temp->enable();
+			temp->setEnable(true);
 		}
 	}
 }
 
 void Scene0::enableUlt() {
 	auto a = UIManager::getInstance()->getUI()->getElement("ult_counter");
-	if (a != nullptr)	a->disable();//disable the text
+	if (a != nullptr)	a->setEnable(false);//disable the text
 	auto b = UIManager::getInstance()->getUI()->getElement("ult_full");
-	if(b != nullptr)	b->enable();//disable the text
+	if(b != nullptr)	b->setEnable(true);//disable the text
 }
 
 void Scene0::useUlt() {
@@ -96,11 +96,11 @@ void Scene0::useUlt() {
 	auto a = (TextUIElement*)UIManager::getInstance()->getUI()->getElement("ult_counter");
 	if (a != nullptr) {
 		a->setText(std::to_string(overwatchUltValue) + "%");
-		a->enable();
+		a->setEnable(true);
 	}
 
 	auto b = UIManager::getInstance()->getUI()->getElement("ult_full");
 	if (b != nullptr) {
-		b->disable();//enable the full ult image
+		b->setEnable(true);//enable the full ult image
 	}
 }

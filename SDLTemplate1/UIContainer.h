@@ -7,12 +7,8 @@
 #include "TextUIElement.h"
 
 class UIContainer {
-	union Data {
-		int i;
-		float f;
-	};
 private:
-	std::unordered_map<const char*, UIElement*> m_elements;
+	std::unordered_map<std::string, UIElement*> m_elements;
 public:
 	UIContainer();
 	void OnCreate();

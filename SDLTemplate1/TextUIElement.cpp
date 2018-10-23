@@ -50,3 +50,7 @@ void TextUIElement::setFontSize(int x) {
 void TextUIElement::setColor(SDL_Color newColor) {
 	color = newColor;
 }
+
+void TextUIElement::setSize(int newSize) {
+	pointSize = newSize;
+}

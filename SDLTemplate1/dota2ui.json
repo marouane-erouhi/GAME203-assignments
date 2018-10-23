@@ -1,0 +1,61 @@
+{
+  "elements": [
+    {
+      "type": "ImageEllement",
+      "id": "minimap",
+      "pos": {
+        "x": -4.1,
+        "y": -3.3,
+        "z": 1.0
+      },
+      "enabled": true,
+      "imageName": "images/dota2/minimap.png"
+    },
+    {
+      "type": "ImageEllement",
+      "id": "character_attr",
+      "pos": {
+        "x": 0,
+        "y": -4.5,
+        "z": 1.0
+      },
+      "enabled": true,
+      "imageName": "images/dota2/character_attr.png"
+    },
+    {
+      "type": "ImageEllement",
+      "id": "shop_button",
+      "pos": {
+        "x": 4.5,
+        "y": -4.6,
+        "z": 1.0
+      },
+      "enabled": true,
+      "imageName": "images/dota2/shop_button.png"
+    },
+    {
+      "type": "ImageEllement",
+      "id": "shop",
+      "pos": {
+        "x": 3.15,
+        "y": 0.6,
+        "z": 1.0
+      },
+      "enabled": true,
+      "imageName": "images/dota2/shop.png"
+    },
+    {
+      "type": "textEllement",
+      "id": "instructions",
+      "pos": {
+        "x": -1.5,
+        "y": 4.0,
+        "z": 1.0
+      },
+      "enabled": true,
+      "text": "Press 's' to open/close the shop",
+      "fontName": "OpenSans-Regular.ttf",
+      "size": 16
+    }
+  ]
+}

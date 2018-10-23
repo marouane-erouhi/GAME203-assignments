@@ -4,6 +4,8 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+
+#include <iostream>
 class UIElement {
 protected:
 	const char * id;
@@ -27,7 +29,6 @@ public:
 		pos = newPos;
 	}
 
-	void enable() { enabled = true; }
-	void disable() { enabled = false; }
+	void setEnable(bool e) { enabled = e; }
 	bool Enabled() { return enabled; }
 };
