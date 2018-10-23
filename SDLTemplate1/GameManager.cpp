@@ -36,8 +36,8 @@ bool GameManager::OnCreate() {
 		return false;
 	}
 
-	//currentScene = new scene1(ptr->GetSDL_Window());
-	currentScene = new Scene0(ptr->GetSDL_Window());
+	currentScene = new scene1(ptr->GetSDL_Window());
+	//currentScene = new Scene0(ptr->GetSDL_Window());
 	if (currentScene == nullptr) {
 		OnDestroy();
 		return false;
@@ -75,9 +75,7 @@ void GameManager::HandleEvents() {
 			this->isRunning = false;
 			break;
 		case SDL_KEYDOWN:
-			/*switch (currentEvent.key.keysym.sym) {
 
-			}*/
 			break;
 		}
 		currentScene->HandleEvents(currentEvent);//handle scene events last

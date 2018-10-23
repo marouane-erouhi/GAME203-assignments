@@ -9,11 +9,14 @@ using json = nlohmann::json;
 using namespace std;
 void JSONFileLoader::loadUIFromFile(UIContainer* ui, SDL_Renderer* renderer, const char * fileName) {
 	// read a JSON file
-	std::ifstream file("dota2ui.json");
+	std::ifstream file(fileName);
 	json j;
 	file >> j;
 	j = j["elements"];//reassign it to point to the elements array
 	//std::cout << j.dump(4) << std::endl;//print the whole object - formated
+
+	//clear the ui object
+	ui->OnDestroy();
 
 	int arraySize = j.size();
 

@@ -18,7 +18,7 @@ bool scene1::OnCreate() {
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 	currentUI = new UIContainer();
-	JSONFileLoader::loadUIFromFile(currentUI, renderer, "testui.json");
+	JSONFileLoader::loadUIFromFile(currentUI, renderer, "overwatchui.json");
 
 	return true;
 }
@@ -43,5 +43,14 @@ void scene1::HandleEvents(SDL_Event event) {
 	case SDL_MOUSEBUTTONDOWN:
 		std::cout << "mouse click" << std::endl;
 		break;
+	case SDL_KEYDOWN:
+		switch (event.key.keysym.sym) {
+		case SDLK_F1:
+			JSONFileLoader::loadUIFromFile(currentUI, renderer, "dota2ui.json");
+			break;
+		case SDLK_F2:
+			JSONFileLoader::loadUIFromFile(currentUI, renderer, "overwatchui.json");
+			break;
+		}
 	}
 }

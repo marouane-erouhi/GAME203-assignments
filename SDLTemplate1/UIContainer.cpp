@@ -10,6 +10,7 @@ void UIContainer::OnDestroy() {
 	for (auto it : m_elements) {
 		it.second->OnDestroy();
 	}
+	m_elements.clear();
 }
 
 void UIContainer::Render(MATH::Matrix4 projectionMatrix) {
@@ -39,7 +40,6 @@ void UIContainer::HandleEvents(SDL_Event event) {
 	//register an event to the ui
 	//then register a function for that event
 }
-
 
 UIContainer * UIContainer::Dota2UIFactory(SDL_Renderer* renderer) {
 	auto a = new UIContainer();

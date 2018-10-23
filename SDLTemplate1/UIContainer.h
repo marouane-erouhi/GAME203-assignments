@@ -20,7 +20,6 @@ public:
 
 	UIElement * getElement(const char* id);
 	void HandleEvents(SDL_Event event);
-
 	//factories
 	static UIContainer* Dota2UIFactory(SDL_Renderer* renderer);
 	static UIContainer* OverwatchUIFactory(SDL_Renderer* renderer);
