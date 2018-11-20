@@ -56,6 +56,17 @@
       "text": "Press 's' to open/close the shop",
       "fontName": "OpenSans-Regular.ttf",
       "size": 16
+    },
+    {
+      "type": "ImageEllement",
+      "id": "ult_full",
+      "pos": {
+        "x": 0,
+        "y": -2,
+        "z": 1.0
+      },
+      "enabled": true,
+      "imageName": "images/overwatch/full_ult.png"
     }
   ]
 }

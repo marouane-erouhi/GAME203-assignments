@@ -24,7 +24,10 @@ void UIContainer::Update(float delta) {
 
 bool UIContainer::AddElement(UIElement * newEll) {
 	//check if it already exists
-	if (m_elements.find(newEll->getId()) != m_elements.end())	return false;
+	if (m_elements.find(newEll->getId()) != m_elements.end()) {
+		std::cout << "UI Element collision: " << newEll->getId() << std::endl;
+		return false; 
+	}
 	newEll->OnCreate();
 	m_elements.insert({newEll->getId(), newEll});
 	return true;
@@ -32,11 +35,14 @@ bool UIContainer::AddElement(UIElement * newEll) {
 
 UIElement * UIContainer::getElement(const char * id) {
 	auto temp = m_elements.find(id);
-	if (temp == m_elements.end())	return nullptr;//if not found
+	if (temp == m_elements.end()){
+		std::cout << "UI Elements not found " << id << std::endl;
+		return nullptr;//if not found
+	}
 	return temp->second;
 }
 
-void UIContainer::HandleEvents(SDL_Event event) {
+void UIContainer::HandleEvents(SDL_Event& event) {
 	//register an event to the ui
 	//then register a function for that event
 }

@@ -1,6 +1,9 @@
 #include <iostream>
 #include "GameManager.h"
 
+#include "Vector.h"
+#include "Matrix.h"
+#include "VMath.h"
 
 int main(int argc, char* args[]) { /// Standard C-style entry point, you need to use it
 

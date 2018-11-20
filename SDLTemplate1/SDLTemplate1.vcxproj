@@ -19,11 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EmptyObject.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="ImageRenderer2dComponent.cpp" />
     <ClCompile Include="ImageUIElement.cpp" />
     <ClCompile Include="JSONFileLoader.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MMath.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Scene0.cpp" />
     <ClCompile Include="scene1.cpp" />
     <ClCompile Include="TextUIElement.cpp" />
@@ -34,16 +37,23 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ImageObject.h" />
+    <ClInclude Include="ImageRenderer2dComponent.h" />
+    <ClInclude Include="ObjectComponent.h" />
+    <ClInclude Include="EmptyObject.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="JSONFileLoader.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="ImageUIElement.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MMath.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene0.h" />
     <ClInclude Include="scene1.h" />
     <ClInclude Include="TextUIElement.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="TransformComponent.h" />
     <ClInclude Include="UIContainer.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="UIManager.h" />
@@ -60,6 +70,8 @@
   <ItemGroup>
     <None Include="dota2ui.json" />
     <None Include="overwatchui.json" />
+    <None Include="scene2.json" />
+    <None Include="testScene.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

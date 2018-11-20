@@ -18,12 +18,18 @@ public:
 	virtual void Render(MATH::Matrix4 projectionMatrix) = 0;
 	virtual void Update(float delta) = 0;
 
+	virtual bool pointInside(MATH::Vec3 point) = 0;
+
 	const char * getId() {
 		return this->id;
 	}
 
 	MATH::Vec3 getPos() {
 		return this->pos;
+	}
+
+	MATH::Vec3 getScreenCoords() {
+		return this->screenCoords;
 	}
 	void setPos(MATH::Vec3 newPos){
 		pos = newPos;

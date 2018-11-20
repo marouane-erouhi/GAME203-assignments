@@ -13,4 +13,6 @@ public:
 	void OnDestroy();
 	void Render(MATH::Matrix4 projectionMatrix);
 	void Update(float delta);
+
+	bool pointInside(MATH::Vec3 point);
 };

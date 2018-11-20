@@ -31,6 +31,27 @@
     <Filter Include="Source Files\SCENES">
       <UniqueIdentifier>{d475b260-b1ef-420a-a0ea-26f36a8eef94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\JSON files">
+      <UniqueIdentifier>{44384064-be38-4fa7-b172-b48599aa18c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject">
+      <UniqueIdentifier>{e21567e7-c9f1-4761-8a84-a9099ebf2ec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject">
+      <UniqueIdentifier>{fa9fca4c-e82a-494a-a4aa-acd57ad3bda7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObject\Components">
+      <UniqueIdentifier>{7ddceb77-099e-4878-a87f-abbfda82188b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject\Components">
+      <UniqueIdentifier>{88bf58c0-53d9-449e-8469-76a729c048b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\JSON files\UIs">
+      <UniqueIdentifier>{0b2b317c-1453-4779-a467-24fb795ba1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\JSON files\Scenes">
+      <UniqueIdentifier>{991685e3-5a32-4989-9fc5-a413ef7b8311}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp">
@@ -71,6 +92,15 @@
     </ClCompile>
     <ClCompile Include="scene1.cpp">
       <Filter>Source Files\SCENES</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageRenderer2dComponent.cpp">
+      <Filter>Source Files\GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyObject.cpp">
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +152,27 @@
     <ClInclude Include="scene1.h">
       <Filter>Header Files\SCENES</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyObject.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageRenderer2dComponent.h">
+      <Filter>Header Files\GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageObject.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>Header Files\GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectComponent.h">
+      <Filter>Header Files\GameObject\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="ball.png">
@@ -135,10 +186,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dota2ui.json">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\JSON files\UIs</Filter>
     </None>
     <None Include="overwatchui.json">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\JSON files\UIs</Filter>
+    </None>
+    <None Include="scene2.json">
+      <Filter>Resource Files\JSON files\Scenes</Filter>
+    </None>
+    <None Include="testScene.json">
+      <Filter>Resource Files\JSON files\Scenes</Filter>
     </None>
   </ItemGroup>
 </Project>

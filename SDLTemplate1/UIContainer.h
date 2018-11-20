@@ -8,6 +8,7 @@
 
 class UIContainer {
 private:
+	//holds all UI Elements
 	std::unordered_map<std::string, UIElement*> m_elements;
 public:
 	UIContainer();
@@ -15,11 +16,11 @@ public:
 	void OnDestroy();
 	void Render(MATH::Matrix4 projectionMatrix);
 	void Update(float delta);
-
+	//add and get an element
 	bool AddElement(UIElement * newEll);
-
 	UIElement * getElement(const char* id);
-	void HandleEvents(SDL_Event event);
+
+	void HandleEvents(SDL_Event& event);
 	//factories
 	static UIContainer* Dota2UIFactory(SDL_Renderer* renderer);
 	static UIContainer* OverwatchUIFactory(SDL_Renderer* renderer);

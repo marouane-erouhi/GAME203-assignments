@@ -1,0 +1,60 @@
+{
+    "GameObjects": [
+        {
+            "name" : "Object1",
+            "active" : true,
+            "pos": {
+                "x" : 1.2,
+                "y" : 1.0,
+                "z" : 1.0
+            },
+          "children": [
+            {
+              "name": "Object3",
+              "active": true,
+              "pos": {
+                "x": 7.2,
+                "y": 5.0,
+                "z": 1.0
+              },
+              "children": [
+
+              ],
+              "components": [
+                {
+                  "active": true,
+                  "imageName": "images/overwatch/full_ult.png",
+                  "type": "ImageRenderer2dComponent"
+                }
+              ]
+            }
+          ],
+            "components" :[
+              {
+                "active": true,
+                "imageName": "images/overwatch/crosshair.png",
+                "type": "ImageRenderer2dComponent"
+              }
+            ]
+        },{
+            "name" : "Object2",
+            "active" : true,
+            "pos": {
+                "x" : 2.0,
+                "y" : -1.0,
+                "z" : 1.0
+            },
+            "children" : [
+
+            ],
+            "components" :[
+                {
+                    "active" : true,
+                    "imageName" : "images/ball.png",
+                    "type" : "ImageRenderer2dComponent"
+                }
+            ]
+        }
+
+    ]
+}

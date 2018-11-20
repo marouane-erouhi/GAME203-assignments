@@ -33,3 +33,23 @@ void ImageUIElement::Render(MATH::Matrix4 projectionMatrix) {
 
 void ImageUIElement::Update(float delta) {
 }
+
+//check if the point givent is inside this element
+bool ImageUIElement::pointInside(MATH::Vec3 point) {
+	/*
+	boolean handelClick(float x, float y){
+        if(x > this.x && x < this.x+this.w){
+            if(y > this.y && y < this.y+this.h){
+                return true;
+            }
+        }
+        return false;
+    }
+	*/
+
+
+
+
+
+	return false;
+}

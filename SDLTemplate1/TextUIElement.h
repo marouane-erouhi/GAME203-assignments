@@ -21,6 +21,8 @@ public:
 	void Render(MATH::Matrix4 projectionMatrix);
 	void Update(float delta);
 
+	bool pointInside(MATH::Vec3 point) { return false; }
+
 	void setText(std::string newText);
 	void setFontSize(int x);
 	void setColor(SDL_Color newColor);
