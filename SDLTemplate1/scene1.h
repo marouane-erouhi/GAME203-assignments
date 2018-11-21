@@ -13,6 +13,7 @@
 
 #include "EmptyObject.h"
 #include "ImageRenderer2dComponent.h"
+#include "RectPrimitiveComponent.h"
 
 #include "JSONFileLoader.h"
 class scene1 : public Scene {
@@ -24,6 +25,8 @@ private:
 	UIContainer* currentUI;
 
 	std::vector<GameObject*> gameObjects;
+
+	SDL_Color color;
 	
 public:
 	scene1(SDL_Window* sdlWindow);

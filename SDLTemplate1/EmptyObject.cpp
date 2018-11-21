@@ -47,7 +47,7 @@ void EmptyObject::Update(float delta) {
 }
 
 bool EmptyObject::AddChild(GameObject * child) {
-	if (GameObjectPresent(child->getName()))	return false;//return false on duplicates
+	//if (GameObjectPresent(child->getName()))	return false;//return false on duplicates
 
 	child->OnCreate();
 	children.push_back(child);
@@ -69,7 +69,7 @@ bool EmptyObject::RemoveChild(GameObject * child) {
 }
 
 bool EmptyObject::AddComponent(ObjectComponent * newComponent) {
-	if (ComponentPresent(newComponent))	return false;
+	//if (ComponentPresent(newComponent))	return false;
 	//initialize and add it
 	newComponent->OnCreate();
 	components.push_back(newComponent);

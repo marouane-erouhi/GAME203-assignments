@@ -26,6 +26,7 @@
     <ClCompile Include="JSONFileLoader.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MMath.cpp" />
+    <ClCompile Include="RectPrimitiveComponent.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Scene0.cpp" />
     <ClCompile Include="scene1.cpp" />
@@ -47,6 +48,7 @@
     <ClInclude Include="ImageUIElement.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MMath.h" />
+    <ClInclude Include="RectPrimitiveComponent.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene0.h" />

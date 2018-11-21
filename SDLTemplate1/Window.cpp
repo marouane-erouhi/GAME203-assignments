@@ -3,6 +3,7 @@
 #include <iostream> /// Umer likes this over printf() - too bad
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+
 Window::Window(int width_, int height_){
 	screenSurface = nullptr;
 	window = nullptr;
@@ -28,6 +29,7 @@ bool Window::OnCreate(){
 		printf("TTF_Init: %s\n", TTF_GetError());
 		return false;
 	}
+	//SDL_draw
 
 	window = SDL_CreateWindow("My First Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
 	if (window == nullptr) {
