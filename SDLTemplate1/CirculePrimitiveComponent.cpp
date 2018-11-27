@@ -5,6 +5,7 @@ CirculePrimitiveComponent::CirculePrimitiveComponent(GameObject * parent_, float
 	color = color_;
 	radius = radius_;
 	renderer = renderer_;
+	active = true;
 }
 
 void CirculePrimitiveComponent::OnCreate() {
@@ -17,14 +18,17 @@ void CirculePrimitiveComponent::Render(MATH::Matrix4 projectionMatrix) {
 	if (!active)	return;
 	screenCoords = projectionMatrix * parent->getPos();
 
-	std::cout << "circle render\n";
-
-	//TODO: makes this better
-	for (int i = 0; i < 360; i++) {
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);//set shape color
+	//draw
+	std::cout << "render\n";
+	float ax= screenCoords.x+radius, ay= screenCoords.y;//thse will store the last point
+	for (float i = 0; i < 2*M_PI; i+=2*M_PI/radius) {
 		float x = screenCoords.x + (radius * cos(i));
 		float y = screenCoords.y + (radius * sin(i));
-		SDL_RenderDrawPoint(renderer, x, y);
+		SDL_RenderDrawLine(renderer, ax, ay, x, y);
+		ax = x;	ay = y;
 	}
+	SDL_RenderDrawLine(renderer, ax, ay, screenCoords.x + radius, screenCoords.y);
 }
 
 void CirculePrimitiveComponent::Update(float delta) {
