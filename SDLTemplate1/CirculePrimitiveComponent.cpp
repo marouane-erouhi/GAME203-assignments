@@ -20,7 +20,6 @@ void CirculePrimitiveComponent::Render(MATH::Matrix4 projectionMatrix) {
 
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);//set shape color
 	//draw
-	std::cout << "render\n";
 	float ax= screenCoords.x+radius, ay= screenCoords.y;//thse will store the last point
 	for (float i = 0; i < 2*M_PI; i+=2*M_PI/radius) {
 		float x = screenCoords.x + (radius * cos(i));
