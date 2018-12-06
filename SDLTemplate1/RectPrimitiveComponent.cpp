@@ -7,6 +7,7 @@ RectPrimitiveComponent::RectPrimitiveComponent(GameObject * parent_, float w_, f
 	w = w_;
 	h = h_;
 	color = color_;
+	type = ComponentType::Rect;
 }
 
 void RectPrimitiveComponent::OnCreate() {

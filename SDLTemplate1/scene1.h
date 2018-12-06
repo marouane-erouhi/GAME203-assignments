@@ -14,6 +14,8 @@
 #include "EmptyObject.h"
 #include "ImageRenderer2dComponent.h"
 #include "RectPrimitiveComponent.h"
+#include "CirculePrimitiveComponent.h"
+#include "PhysicsComponent.h"
 
 #include "JSONFileLoader.h"
 class scene1 : public Scene {

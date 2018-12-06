@@ -27,19 +27,7 @@ bool scene1::OnCreate() {
 	/*currentUI = new UIContainer();
 	JSONFileLoader::loadUIFromFile(currentUI, renderer, "overwatchui.json");*/
 
-	
-
 	//JSONFileLoader::loadSceneFromFile(gameObjects, renderer, "scene2.json");
-
-
-	//stress test the ResourceManager
-	/*for (int i = 0; i < 100000; i++) {
-		gameObjects.push_back(
-			AddComponent(
-				new EmptyObject(nullptr, "testImage1"+i, MATH::Vec3(2.0f+(i*0.01f))), 1,
-				new ImageRenderer2dComponent(nullptr, "images/ball.png", renderer)
-			));
-	}*/
 
 	SDL_Color c = SDL_Color();
 	c.r = 255;	c.g = 0; c.b = 0; c.a = 0;
@@ -47,10 +35,12 @@ bool scene1::OnCreate() {
 	gameObjects.push_back(
 		AddComponent(
 			new EmptyObject(nullptr, "testImage1", MATH::Vec3(2.0f + (0.01f))), 2,
-			new ImageRenderer2dComponent(nullptr, "images/ball.png", renderer),
-			new RectPrimitiveComponent(nullptr,200,200,c,renderer)
+			//new ImageRenderer2dComponent(nullptr, "images/ball.png", renderer),
+			new RectPrimitiveComponent(nullptr,200,200,c,renderer),
+			//new CirculePrimitiveComponent(nullptr, 300,c,renderer)
+			new PhysicsComponent(nullptr, MATH::Vec3(0.1,0.2,0.0))
 		));
-
+	
 	// Once setup is done, OnCreate all the things
 	for (auto it : gameObjects) {
 		it->OnCreate();
@@ -74,6 +64,7 @@ void scene1::Update(const float time) {
 
 void scene1::Render() const {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+	SDL_RenderSetScale(renderer, 1.0f, 1.0f);
 	SDL_RenderClear(renderer);//clear screen
 
 
@@ -83,10 +74,10 @@ void scene1::Render() const {
 
 	SDL_Rect rect = SDL_Rect();
 
-	rect.w = 500.0f;
-	rect.h = 500.0f;
-	rect.x = 100.0f;
-	rect.y = 100.0f;
+	rect.w = (int)500.0f;
+	rect.h = (int)500.0f;
+	rect.x = (int)100.0f;
+	rect.y = (int)100.0f;
 
 	//SDL_SetRenderDrawColor(renderer, 55, 155, 220, 255);
 	//SDL_RenderFillRect(renderer,&rect);

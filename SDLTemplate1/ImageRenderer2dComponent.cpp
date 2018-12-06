@@ -7,6 +7,7 @@ ImageRenderer2dComponent::ImageRenderer2dComponent(GameObject * parent_, std::st
 : imageName(imageName_), renderer(renderer_) {
 	parent = parent_;
 	active = true;
+	type = ComponentType::Image;
 }
 
 void ImageRenderer2dComponent::OnCreate() {

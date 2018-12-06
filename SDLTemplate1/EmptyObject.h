@@ -3,8 +3,11 @@
 #include "GameObject.h"
 
 #include <typeinfo>
+#include "ComponentType.h"
 
 class EmptyObject : public GameObject {
+private:
+	MATH::Vec3 dimentions;
 public:
 	EmptyObject(GameObject* parent_, const char* name_, MATH::Vec3 pos_);
 
@@ -17,6 +20,9 @@ public:
 	bool RemoveChild(GameObject* child);
 
 	bool AddComponent(ObjectComponent* newComponent);
+	ObjectComponent* GetComponent(ComponentType type);
+
+	MATH::Vec3 getDimentions();
 
 private:
 	/// Check if a GameObject with the same name is already a child

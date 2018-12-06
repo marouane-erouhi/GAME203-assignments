@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector.h"
 #include "Matrix.h"
+#include "ComponentType.h"
 
 class GameObject;
 
@@ -9,6 +10,8 @@ protected:
 	GameObject* parent;
 	bool active;
 public:
+	ComponentType type;
+	
 	virtual void OnCreate() = 0;
 	virtual void OnDestroy() = 0;
 	virtual void Render(MATH::Matrix4 projectionMatrix) = 0;

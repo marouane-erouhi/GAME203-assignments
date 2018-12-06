@@ -3,6 +3,7 @@
 PhysicsComponent::PhysicsComponent(GameObject * parent_) {
 	parent = parent_;
 	active = true;
+	type = ComponentType::Physics;
 }
 
 PhysicsComponent::PhysicsComponent(GameObject * parent_, MATH::Vec3 vel_) {
@@ -10,6 +11,7 @@ PhysicsComponent::PhysicsComponent(GameObject * parent_, MATH::Vec3 vel_) {
 }
 
 void PhysicsComponent::OnCreate() {
+	//dimentions = parent->getDimentions();
 }
 
 void PhysicsComponent::OnDestroy() {
@@ -28,6 +30,14 @@ void PhysicsComponent::Update(float delta) {
 	parent->setPos(
 		parent->getPos() += vel * delta
 	);
+}
+
+MATH::Vec3 PhysicsComponent::getVelocity() {
+	return vel;
+}
+
+void PhysicsComponent::setVelocity(MATH::Vec3 vel_) {
+	vel = vel_;
 }
 
 void PhysicsComponent::setParent(GameObject * parent_) {

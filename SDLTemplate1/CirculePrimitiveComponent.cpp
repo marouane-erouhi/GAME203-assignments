@@ -6,6 +6,7 @@ CirculePrimitiveComponent::CirculePrimitiveComponent(GameObject * parent_, float
 	radius = radius_;
 	renderer = renderer_;
 	active = true;
+	type = ComponentType::Circle;
 }
 
 void CirculePrimitiveComponent::OnCreate() {

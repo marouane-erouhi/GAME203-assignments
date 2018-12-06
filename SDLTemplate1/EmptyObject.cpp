@@ -77,6 +77,19 @@ bool EmptyObject::AddComponent(ObjectComponent * newComponent) {
 	return true;
 }
 
+ObjectComponent * EmptyObject::GetComponent(ComponentType type) {
+	for (auto i : components) {
+		if (i->type == type) {
+			return i;
+		}
+	}
+	return nullptr;
+}
+
+MATH::Vec3 EmptyObject::getDimentions() {
+	return dimentions;
+}
+
 bool EmptyObject::GameObjectPresent(std::string name) {
 	for (auto it : children) {
 		if (it->getName() == name)	return true;

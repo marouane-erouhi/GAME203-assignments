@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "ObjectComponent.h"
+#include "ComponentType.h"
 
 class GameObject {
 protected:
@@ -21,6 +22,9 @@ protected:
 	std::vector<GameObject*> children;
 	std::vector<ObjectComponent*> components;
 
+	//friendship is magic
+	friend class ObjectComponent;
+
 public:
 	virtual void OnCreate() = 0;
 	virtual void OnDestroy() = 0;
@@ -31,6 +35,7 @@ public:
 	virtual bool RemoveChild(GameObject* child) = 0;
 
 	virtual bool AddComponent(ObjectComponent* newComponent) = 0;
+	virtual ObjectComponent* GetComponent(ComponentType type) = 0;
 
 	//TODO: how can i find something based on it's type
 	//virtual bool RemoveComponent() = 0;
