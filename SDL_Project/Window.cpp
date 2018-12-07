@@ -22,6 +22,7 @@ bool Window::OnCreate(){
 		std::cout << "SDL_Error: " << SDL_GetError() << std::endl;
 		return false;
 	}
+
 	//Initialize the SDL_image
 	int imgFlags = IMG_INIT_PNG;
 	if (!(IMG_Init(imgFlags) &imgFlags)) {

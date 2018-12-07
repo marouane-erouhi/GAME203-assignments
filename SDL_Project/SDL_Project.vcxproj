@@ -11,26 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Assignment.cpp" />
-    <ClCompile Include="Assignment2.cpp" />
-    <ClCompile Include="Assignment3.cpp" />
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MMath.cpp" />
-    <ClCompile Include="BodyinSpace.cpp" />
     <ClCompile Include="Scene01.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="VMath.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Assignment.h" />
-    <ClInclude Include="Assignment2.h" />
-    <ClInclude Include="Assignment3.h" />
     <ClInclude Include="Body.h" />
-    <ClInclude Include="BodyinSpace.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Matrix.h" />

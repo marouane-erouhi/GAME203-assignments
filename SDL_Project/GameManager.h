@@ -21,6 +21,10 @@ private:
 	
 	Scene *currentScene;
 
+	//This is to convert screen space to world space units for calculations
+	int screenWidth;
+	int screenHeight;
+
 public:
 	GameManager();
 	~GameManager();

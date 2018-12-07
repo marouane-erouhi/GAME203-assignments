@@ -1,3 +1,5 @@
+#ifndef WINDOW_H
+#define WINDOW_H
 
 class Window {
 private:
@@ -13,3 +15,4 @@ public:
 	SDL_Window* GetSDL_Window();
 };
 
+#endif

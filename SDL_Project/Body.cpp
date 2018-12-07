@@ -4,9 +4,11 @@
 
 using namespace MATH;
 
-Body::Body(char* imageName_, MATH::Vec3 pos_) {
-	SetImage(imageName_);
-	SetPosition(pos_);
+Body::Body(char* imageName_, MATH::Vec3 pos_, int tags_) {
+	SetImage(imageName_);//Load .png
+	SetPosition(pos_);//Set initial position
+	tags = tags_;
+	//Find out the size/dimension from the image file
 	length = getImage()->w;
 	width = getImage()->h;
 }
@@ -82,6 +84,10 @@ void Body::Update(const float deltaTime) {
 	accel.y = 0.0f;
 	accel.z = 0.0f;
 
+}
+
+int Body::GetTags() {
+	return tags;
 }
 
 void Body::ApplyForce(Vec3 force) {

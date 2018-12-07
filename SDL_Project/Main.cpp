@@ -1,6 +1,7 @@
 #include <iostream>
 #include "GameManager.h"
 #include "MMath.h"
+#include <string>
 ///#include <SDL.h>
 using namespace MATH;
 
@@ -18,6 +19,7 @@ int main(int argc, char* args[]) { /// Standard C-style entry point, you need to
 	
 	return 0;
 }
+
 //Press ESC to close the render window
 
 //To do:
