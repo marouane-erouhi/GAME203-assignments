@@ -17,7 +17,10 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MMath.cpp" />
     <ClCompile Include="Scene01.cpp" />
+    <ClCompile Include="TextUIElement.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="UIContainer.cpp" />
+    <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="VMath.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -25,11 +28,16 @@
     <ClInclude Include="Body.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="LoseScene.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MMath.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene01.h" />
+    <ClInclude Include="TextUIElement.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="UIContainer.h" />
+    <ClInclude Include="UIElement.h" />
+    <ClInclude Include="UIManager.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="VMath.h" />
     <ClInclude Include="Window.h" />

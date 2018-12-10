@@ -2,7 +2,7 @@
 #define BODY_H
 #include "Vector.h"
 #include "SDL.h"
-
+#include "Matrix.h"
 class Body {
 
 private:
@@ -15,12 +15,17 @@ private:
 	int tags;//To determine how the object should behave when collided
 	float mass = 1.0f;
 	float radius;
+
 	float length;
 	float width;
 	
 	MATH::Vec3 vel;
 	MATH::Vec3 accel;
 	SDL_Surface *bodyImage;
+
+	bool alive = true;
+
+	SDL_Color color;
 	
 public:
 	//Variables
@@ -37,8 +42,11 @@ public:
 	void SetImage(const char* imageName_);
 	void SetPosition(MATH::Vec3 pos_);
 	void SetVelocity(MATH::Vec3 vel_);
+	void SetColor(int r, int g, int b, int a);
 	void ApplyForce(MATH::Vec3 force);
 	void Update(const float deltaTime);
+	void Render(MATH::Matrix4 projectionMatrix, SDL_Surface* screenSurface_);
+	void Render(MATH::Matrix4 projectionMatrix, SDL_Renderer* renderer_);
 	void OnDestroy();
 	
 	int GetTags();
@@ -52,8 +60,16 @@ public:
 		}
 	}
 
+	bool isAlive() {
+		return alive;
+	}
+	MATH::Vec3 GetPos() { return pos; }
+	float GetLength() { return length; }
+
 	/// Just a little helper function
 	SDL_Surface* getImage();
+
+	bool OutOfBounds();
 };
 
 

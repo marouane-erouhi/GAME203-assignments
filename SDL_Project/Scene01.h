@@ -5,7 +5,7 @@
 #include "Collider.h"
 #include <memory>
 #include <vector>
-
+#include "VMath.h"
 class Scene01 : public Scene
 {
 private:
@@ -19,17 +19,29 @@ private:
 	SDL_Window * window;
 	MATH::Matrix4 projectionMatrix;
 	float elapsedTime;
-	
-	//Game Objects
-	std::unique_ptr<Body> ball;//Body dedicated to ball
-	std::unique_ptr<Body> player;//Body dedicated to player
-	std::vector<Body*> border;//Body array to store blocks that make up the border/frame
-	//std::vector<Body*> blocks;//Body array dedicated to destructable blocks
 
-	Collider collider;//Change to static class later
+	float resetTimer = 0.0f;
+
+	float defaultBallSpeed = 200;
+	float ballSpeed;
+
+	int lives = 3;
+
+	//Game Objects
+	//std::unique_ptr<Body> ball;//Body dedicated to ball
+	std::unique_ptr<Body> player;//Body dedicated to player
+
+	std::vector<Body*> border;//Body array to store blocks that make up the border/frame
+	std::vector<Body*> blocks;//Body array dedicated to destructable blocks
+
+	std::vector<Body*> balls;
+
+	MATH::Vec3 ballDirection;//this is the directiono of the ball when it spawns
+
+	SDL_Renderer* screenRenderer;
 
 	//Support Function
-	void SubRender(SDL_Rect& imageRectangle_, SDL_Surface* screenSurface_, Body& body_);
+	//void SubRender(SDL_Rect& imageRectangle_, SDL_Surface* screenSurface_, Body& body_);
 
 public:
 	Scene01(SDL_Window* sdlWindow_, const int screenWidth_, const int screenHeight_);
@@ -40,6 +52,11 @@ public:
 	void Render();
 	void HandleEvents(const SDL_Event &event); //Button Event
 
+
+	//game functions
+	void spawnBall();
+	void changeGameSpeed();
+	void resetGameSpeed();
 };
 
 #endif

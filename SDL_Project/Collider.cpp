@@ -1,15 +1,7 @@
 #include "Collider.h"
 #include <iostream> //For Debugging
 using namespace MATH;
-
-Collider::Collider()
-{
-	collisionBuffer = 1.0f;
-}
-
-Collider::~Collider()
-{
-}
+float Collider::collisionBuffer = 1.0f;
 
 bool Collider::detectCollision(Body& body1, Body& body2) {
 	//Keep in mind the ortho unit ratio to the screen pixel ratio
@@ -57,6 +49,8 @@ bool Collider::detectCollision(Body& body1, Body& body2) {
 void Collider::handleCollision(Body& body1, Body& body2, const Vec3& sumDiff_) {
 	Vec3 vel = body1.vel;
 
+	
+
 	if (sumDiff_.y > sumDiff_.x) {//block is above or below
 		body1.vel.y *= -1.0f;
 		if (body1.pos.y > body2.pos.y) {//block is below
@@ -75,6 +69,12 @@ void Collider::handleCollision(Body& body1, Body& body2, const Vec3& sumDiff_) {
 		else {//block is to the right
 			body1.pos.x -= collisionBuffer;
 		}
+	}
+
+	//block
+	if (body2.tags == 4) {
+		body2.alive = false;//kill block
+		//raise score
 	}
 
 }
