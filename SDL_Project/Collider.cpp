@@ -1,6 +1,11 @@
 #include "Collider.h"
 #include <iostream> //For Debugging
+
 using namespace MATH;
+float Collider::collisionBuffer;
+int Collider::tag1; 
+int Collider::tag2;
+//bool Collider::isCollided; //Mostly used for debugging
 
 Collider::Collider()
 {
@@ -43,6 +48,7 @@ bool Collider::detectCollision(Body& body1, Body& body2) {
 
 	//If the 2 objects overlap = they've collided
 	if(dist.x <= sumLength && dist.y <= sumWidth){
+		GetTags(body1.tags, body2.tags);
 		if (body1.tags == 1 && body2.tags == 3) {
 			playerCollision(body1);
 		}
@@ -50,13 +56,14 @@ bool Collider::detectCollision(Body& body1, Body& body2) {
 		handleCollision(body1, body2, sumDiff);
 		return true;
 	}
-
+	
 	return false;//May not need to return bool//For Debugging
 }
 
 void Collider::handleCollision(Body& body1, Body& body2, const Vec3& sumDiff_) {
 	Vec3 vel = body1.vel;
 
+	
 	if (sumDiff_.y > sumDiff_.x) {//block is above or below
 		body1.vel.y *= -1.0f;
 		if (body1.pos.y > body2.pos.y) {//block is below
@@ -81,6 +88,17 @@ void Collider::handleCollision(Body& body1, Body& body2, const Vec3& sumDiff_) {
 
 void Collider::playerCollision(Body& player_){
 	player_.SetVelocity(Vec3(0.0f, 0.0f, 0.0f));
+}
+
+
+void Collider::GetTags(const int body1, const int body2) {
+	tag1 = body1;
+	tag2 = body2;
+}
+
+void Collider::ClearTags() {
+	tag1 = 0;
+	tag2 = 0;
 }
 
 //Simple support function to find absolute values of float

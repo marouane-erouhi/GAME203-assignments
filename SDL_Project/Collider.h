@@ -2,6 +2,7 @@
 #define COLLIDER_H
 #include "Body.h"
 #include "Vector.h"
+#include "Player.h"
 //Careful of cyclical includes
 
 class Collider
@@ -10,22 +11,29 @@ public:
 	Collider();
 	~Collider();
 	
-	bool detectCollision(Body& body1, Body& body2);
+	static bool detectCollision(Body& body1, Body& body2);
+	
+	//Send the id of the collided objects to player
+	static int tag1;
+	static int tag2;
+	//static bool isCollided;
+	static void ClearTags();
 
 private:
 	//Used to prevent collision trapping
 	//(ball trapped inside blocks during collision)
-	float collisionBuffer;
+	static float collisionBuffer;
 
-	void handleCollision(Body& body1, Body& body2, const MATH::Vec3& sumDiff_);
+	static void handleCollision(Body& body1, Body& body2, const MATH::Vec3& sumDiff_);
 	
 	//This one is to stop player if KEYUP doesn't work
-	void playerCollision(Body& player_);
+	static void playerCollision(Body& player_);
 
 	//Support Functions
-	float absoluteValue(const float& value_);
+	static float absoluteValue(const float& value_);
 	
-	
+	//Find out which 2 objects collided
+	static void GetTags(const int body1, const int body2);
 };
 
 #endif //Collider;

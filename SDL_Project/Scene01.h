@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "Collider.h"
+#include "Player.h"
 #include <memory>
 #include <vector>
 
@@ -13,6 +14,8 @@ private:
 	float screenWidth;
 	float screenHeight;
 	float playerVelocity;
+	Player* player;
+	
 	bool isLaunched = false;//Checks if ball is launched(runs on DragBall() and HandleEvent())
 	MATH::Vec3 ballInitialVelocity;
 
@@ -22,11 +25,9 @@ private:
 	
 	//Game Objects
 	std::unique_ptr<Body> ball;//Body dedicated to ball
-	std::unique_ptr<Body> player;//Body dedicated to player
+	std::unique_ptr<Body> pin;//Body dedicated to player
 	std::vector<Body*> border;//Body array to store blocks that make up the border/frame
 	//std::vector<Body*> blocks;//Body array dedicated to destructable blocks
-
-	Collider collider;//Change to static class later
 
 	//Support Function
 	void SubRender(SDL_Rect& imageRectangle_, SDL_Surface* screenSurface_, Body& body_);

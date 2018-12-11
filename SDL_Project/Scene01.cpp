@@ -14,7 +14,7 @@ Scene01::Scene01(SDL_Window* sdlWindow_, const int screenWidth_, const int scree
 
 	//Initialize Multiple Bodies
 	ball.reset(nullptr);
-	player.reset(nullptr);
+	pin.reset(nullptr);
 
 }
 
@@ -31,6 +31,9 @@ bool Scene01::OnCreate() {
 	const float gridX = screenWidth / 2; //Implicit int to float conversion
 	const float gridY = screenHeight / 2; 
 	
+	//Initialize Player class
+	player = new Player();
+
 	//Variables to control inputs
 	Vec3 playerPosition(-65.0f, -300.0f, 0.0f);
 	Vec3 ballPosition(0.0f, -270.0f, 0.0f);
@@ -42,7 +45,7 @@ bool Scene01::OnCreate() {
 	
 	//Ball & Player initialize
 	ball.reset(new Body("images/SphereBlueS.bmp", ballPosition, 2));//Ball
-	player.reset(new Body("images/player.png", playerPosition, 1));//Player block
+	pin.reset(new Body("images/player.png", playerPosition, 1));//Player block
 	
 	//Border initialize
 	border.push_back(new Body("images/blockH.png", Vec3(-200.0f, 350.0f, 0.0f), 3));//Top Bound
@@ -51,13 +54,15 @@ bool Scene01::OnCreate() {
 
 	//Multiple bodies check if null
 	if (ball == nullptr) return false;
-	if (player == nullptr) return false;
+	if (pin == nullptr) return false;
 	if (border.empty()) return false;
 
 	return true;
 }
 
 void Scene01::OnDestroy() {
+	if (player) delete player;
+	player = nullptr;
 
 	//Delete std::vector<blocks*> 
 	if (border.size() > 0) {
@@ -75,22 +80,28 @@ void Scene01::OnDestroy() {
 void Scene01::Update(const float time_) {
 	
 	ball->Update(time_);
-	player->Update(time_);
+	pin->Update(time_);
 	
-	collider.detectCollision(*ball, *player);
+	//for (int i = 0; i < blocks.size(); i++) {//Use for destructable blocks
+		Collider::detectCollision(*ball, *pin);
+		//Collider::detectCollision(*ball, *blocks);
+	//}
 
 	//Updating border? This is primarily used to detect collision between player/ball with borders
 	for (int i = 0; i < border.size(); i++) {
 		border.at(i)->Update(time_);
-		collider.detectCollision(*ball, *border.at(i));
-		collider.detectCollision(*player, *border.at(i));
+		Collider::detectCollision(*ball, *border.at(i));
+		Collider::detectCollision(*pin, *border.at(i));
 	}
 
 	//Quick functionality to drag the ball initially
 	if (!isLaunched) {
-		ball->SetVelocity(Vec3(player->GetVelocity().x, 0.0f, 0.0f));
-		ballInitialVelocity.x = player->GetVelocity().x;
+		ball->SetVelocity(Vec3(pin->GetVelocity().x, 0.0f, 0.0f));
+		ballInitialVelocity.x = pin->GetVelocity().x;
+
 	}
+	player->Update(time_);
+	Collider::ClearTags();//This needs to be after player->update
 }
 
 void Scene01::Render() {
@@ -102,7 +113,7 @@ void Scene01::Render() {
 	
 	//Render ball & player
 	SubRender(imageRectangle, screenSurface, *ball);
-	SubRender(imageRectangle, screenSurface, *player);
+	SubRender(imageRectangle, screenSurface, *pin);
 
 	//Render blocks
 	for (int i = 0; i < border.size(); i++) {//Multiple bodies
@@ -132,11 +143,11 @@ void Scene01::HandleEvents(const SDL_Event &event) {
 
 		switch (event.key.keysym.sym) {
 		case SDLK_RIGHT://Arrow Right
-			player->SetVelocity(Vec3(playerVelocity, 0.0f, 0.0f));
+			pin->SetVelocity(Vec3(playerVelocity, 0.0f, 0.0f));
 			break;
 
 		case SDLK_LEFT://Arrow Left
-			player->SetVelocity(Vec3(-playerVelocity, 0.0f, 0.0f));
+			pin->SetVelocity(Vec3(-playerVelocity, 0.0f, 0.0f));
 			break;
 
 		case SDLK_UP://Arrow Up
@@ -163,12 +174,12 @@ void Scene01::HandleEvents(const SDL_Event &event) {
 			std::cout << "KEYUP" << std::endl;//For Debugging
 		case SDLK_RIGHT://Arrow Right
 			playerVelocity = 0.0f;
-			player->SetVelocity(Vec3(playerVelocity, 0.0f, 0.0f));
+			pin->SetVelocity(Vec3(playerVelocity, 0.0f, 0.0f));
 			break;
 
 		case SDLK_LEFT://Arrow Left
 			playerVelocity = 0.0f;
-			player->SetVelocity(Vec3(playerVelocity, 0.0f, 0.0f));
+			pin->SetVelocity(Vec3(playerVelocity, 0.0f, 0.0f));
 			break;
 		default:
 			//std::cout << "DEFAULT" << std::endl;
