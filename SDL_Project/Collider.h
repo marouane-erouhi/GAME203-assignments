@@ -14,7 +14,7 @@ private:
 	static float collisionBuffer;
 
 	static void handleCollision(Body& body1, Body& body2, const MATH::Vec3& sumDiff_);
-	
+	//static bool
 	//This one is to stop player if KEYUP doesn't work
 	static void playerCollision(Body& player_);
 

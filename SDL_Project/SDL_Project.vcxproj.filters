@@ -22,6 +22,9 @@
     <Filter Include="Source Files\UI">
       <UniqueIdentifier>{f0f51dd0-bcfd-4b05-80b0-2b4256a54e39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\JSON">
+      <UniqueIdentifier>{284e0045-9ddc-494f-9717-471aac268613}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Body.cpp">
@@ -59,6 +62,15 @@
     </ClCompile>
     <ClCompile Include="UIManager.cpp">
       <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONFileLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONFileWriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,5 +122,22 @@
     <ClInclude Include="TextUIElement.h">
       <Filter>Header Files\UI</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONFileLoader.h">
+      <Filter>Header Files\JSON</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="levels\testBlockLevel.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="JSONFileWriter.h">
+      <Filter>Header Files\JSON</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -35,7 +35,7 @@ bool Collider::detectCollision(Body& body1, Body& body2) {
 
 	//If the 2 objects overlap = they've collided
 	if(dist.x <= sumLength && dist.y <= sumWidth){
-		if (body1.tags == 1 && body2.tags == 3) {
+		if (body1.tag == BodyTypes::Player && body2.tag == BodyTypes::Border) {
 			playerCollision(body1);
 		}
 
@@ -48,8 +48,6 @@ bool Collider::detectCollision(Body& body1, Body& body2) {
 
 void Collider::handleCollision(Body& body1, Body& body2, const Vec3& sumDiff_) {
 	Vec3 vel = body1.vel;
-
-	
 
 	if (sumDiff_.y > sumDiff_.x) {//block is above or below
 		body1.vel.y *= -1.0f;
@@ -72,7 +70,7 @@ void Collider::handleCollision(Body& body1, Body& body2, const Vec3& sumDiff_) {
 	}
 
 	//block
-	if (body2.tags == 4) {
+	if (body2.tag == BodyTypes::Breakable_Block) {
 		body2.alive = false;//kill block
 		//raise score
 	}

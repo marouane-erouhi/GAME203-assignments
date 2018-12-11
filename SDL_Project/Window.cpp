@@ -2,7 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h> //SDL Image component
 #include <iostream> /// Umer likes this over printf() - too bad
-
+#include <SDL_ttf.h>
 
 Window::Window(int width_, int height_){
 	screenSurface = nullptr; //Or NULL does the same thing
@@ -27,6 +27,12 @@ bool Window::OnCreate(){
 	int imgFlags = IMG_INIT_PNG;
 	if (!(IMG_Init(imgFlags) &imgFlags)) {
 		std::cout << "SDL_image could not initialize. SDL_image Error: %s\n" << IMG_GetError() << std::endl;
+		return false;
+	}
+
+	//SDL_ttf
+	if (TTF_Init() == -1) {
+		printf("TTF_Init: %s\n", TTF_GetError());
 		return false;
 	}
 

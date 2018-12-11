@@ -3,6 +3,17 @@
 #include "Vector.h"
 #include "SDL.h"
 #include "Matrix.h"
+
+using namespace MATH;
+
+enum BodyTypes {
+	Player,
+	Ball,
+	Border,
+	Breakable_Block,
+	Circle
+};
+
 class Body {
 
 private:
@@ -12,7 +23,8 @@ private:
 	//tags = 3; frame blocks (bounding border)
 	//tags = 4; regular blocks
 	//etc...
-	int tags;//To determine how the object should behave when collided
+	//int tags;//To determine how the object should behave when collided
+	BodyTypes tag;
 	float mass = 1.0f;
 	float radius;
 
@@ -33,8 +45,13 @@ public:
 
 	//Constructors
 	Body(char* imageName_, MATH::Vec3 pos_, int tags_);//Use the image dimension to set length/width
+
+	//rect body
+	Body(Vec3 pos_, BodyTypes tag_, float length_, float width_, SDL_Color color_ = {255,0,55,255});
+	Body(Vec3 pos_, BodyTypes tag_, float radius_, SDL_Color color_ = { 255,0,55,255 });
 	Body(char* imageName_, float radius_, MATH::Vec3 pos_);//Circle
 	Body(char* imageName_, float length_, float width_, MATH::Vec3 pos_);//Rectangle
+
 	Body(char* imageName_, float mass_, MATH::Vec3 pos_, MATH::Vec3 vel_, MATH::Vec3 accel_);//Object with mass
 	~Body();
 
@@ -50,6 +67,7 @@ public:
 	void OnDestroy();
 	
 	int GetTags();
+	BodyTypes GetTag();
 
 	friend class Collider;
 
@@ -58,6 +76,7 @@ public:
 		if (vel) {
 			return vel;
 		}
+		return MATH::Vec3();
 	}
 
 	bool isAlive() {
@@ -65,6 +84,8 @@ public:
 	}
 	MATH::Vec3 GetPos() { return pos; }
 	float GetLength() { return length; }
+	float GetWidth() { return width; }
+	SDL_Color GetColor() { return color; }
 
 	/// Just a little helper function
 	SDL_Surface* getImage();

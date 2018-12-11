@@ -7,12 +7,27 @@ using namespace MATH;
 Body::Body(char* imageName_, MATH::Vec3 pos_, int tags_) {
 	SetImage(imageName_);//Load .png
 	SetPosition(pos_);//Set initial position
-	tags = tags_;
+	//tags = tags_;
 	//Find out the size/dimension from the image file
 	length = getImage()->w;
 	width = getImage()->h;
 	radius = length / 2;
 	color.r = 255; color.g = 0; color.b = 55; color.a = 255;//default color
+}
+
+Body::Body(Vec3 pos_, BodyTypes tag_, float length_, float width_, SDL_Color color_) {
+	SetPosition(pos_);
+	tag = tag_;
+	width = width_;
+	length = length_;
+	color = color_;
+}
+
+Body::Body(Vec3 pos_, BodyTypes tag_, float radius_, SDL_Color color_) {
+	SetPosition(pos_);
+	tag = tag_;
+	radius = radius_;
+	color = color_;
 }
 
 Body::Body(char* imageName_, float radius_, Vec3 pos_){//Circle
@@ -111,15 +126,40 @@ void Body::Render(MATH::Matrix4 projectionMatrix, SDL_Surface* screenSurface_) {
 void Body::Render(MATH::Matrix4 projectionMatrix, SDL_Renderer * renderer_) {
 	Vec3 screenCoords = projectionMatrix * pos;
 	SDL_Rect imageRectangle_;
-	imageRectangle_.h = getImage()->h;
-	imageRectangle_.w = getImage()->w;
+	if (bodyImage == nullptr) {
+		imageRectangle_.h = width;
+		imageRectangle_.w = length;
+	}
+	else {
+		imageRectangle_.h = getImage()->h;
+		imageRectangle_.w = getImage()->w;
+	}
+	
 	imageRectangle_.x = screenCoords.x; /// implicit type conversions BAD - probably causes a compiler warning (int = float)
 	imageRectangle_.y = screenCoords.y; /// implicit type conversions BAD - probably causes a compiler warning
 
 
 	SDL_SetRenderDrawColor(renderer_, color.r, color.g, color.b, color.a);//set shape color
 
-	if (tags == 2) {//circle
+	//if (tag == BodyTypes::Circle) {//circle
+	//	for (int w = 0; w < radius * 2; w++) {
+	//		for (int h = 0; h < radius * 2; h++) {
+	//			int dx = radius - w; // horizontal offset
+	//			int dy = radius - h; // vertical offset
+	//			if ((dx*dx + dy * dy) <= (radius * radius)) {
+	//				SDL_RenderDrawPoint(renderer_, screenCoords.x + dx, screenCoords.y + dy);
+	//			}
+	//		}
+	//	}
+	//}
+	//else{//rect
+	//	SDL_RenderFillRect(renderer_, &imageRectangle_);//draw
+
+	//}
+
+	switch (tag) {
+	case BodyTypes::Ball:
+	case BodyTypes::Circle:
 		for (int w = 0; w < radius * 2; w++) {
 			for (int h = 0; h < radius * 2; h++) {
 				int dx = radius - w; // horizontal offset
@@ -129,16 +169,22 @@ void Body::Render(MATH::Matrix4 projectionMatrix, SDL_Renderer * renderer_) {
 				}
 			}
 		}
-	}
-	else{//rect
+		break;
+	case BodyTypes::Border:
+	case BodyTypes::Breakable_Block:
+	case BodyTypes::Player:
 		SDL_RenderFillRect(renderer_, &imageRectangle_);//draw
-
+		break;
 	}
 
 }
 
 int Body::GetTags() {
-	return tags;
+	return 0;// tags;
+}
+
+BodyTypes Body::GetTag() {
+	return tag;
 }
 
 void Body::ApplyForce(Vec3 force) {

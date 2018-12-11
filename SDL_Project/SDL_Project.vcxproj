@@ -14,8 +14,11 @@
     <ClCompile Include="Body.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="JSONFileLoader.cpp" />
+    <ClCompile Include="JSONFileWriter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MMath.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Scene01.cpp" />
     <ClCompile Include="TextUIElement.cpp" />
     <ClCompile Include="Timer.cpp" />
@@ -28,9 +31,12 @@
     <ClInclude Include="Body.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="json.hpp" />
+    <ClInclude Include="JSONFileLoader.h" />
     <ClInclude Include="LoseScene.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MMath.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene01.h" />
     <ClInclude Include="TextUIElement.h" />
@@ -41,6 +47,10 @@
     <ClInclude Include="Vector.h" />
     <ClInclude Include="VMath.h" />
     <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="JSONFileWriter.h" />
+    <None Include="levels\testBlockLevel.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{589E5150-A342-42E4-B2D5-F872FC79C932}</ProjectGuid>
@@ -72,21 +82,21 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\GameDev\SDL2_image-2.0.3\include;C:\GameDev\SDL2-2.0.8\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\GameDev\SDL2-2.0.8\lib\x86;C:\GameDev\SDL2_image-2.0.3\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\GameDev\SDL2_image-2.0.3\include;C:\GameDev\SDL2-2.0.8\include;C:\GameDev\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\GameDev\SDL2-2.0.8\lib\x86;C:\GameDev\SDL2_image-2.0.3\lib\x86;C:\GameDev\SDL2_ttf-2.0.14\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\GameDev\SDL2-2.0.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\GameDev\SDL2-2.0.8\include;C:\GameDev\SDL2_ttf-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\GameDev\SDL2-2.0.8\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\GameDev\SDL2-2.0.8\lib\x86;C:\GameDev\SDL2_ttf-2.0.14\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

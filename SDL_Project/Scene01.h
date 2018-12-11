@@ -6,6 +6,10 @@
 #include <memory>
 #include <vector>
 #include "VMath.h"
+#include "UIManager.h"
+
+#include "Player.h"
+
 class Scene01 : public Scene
 {
 private:
@@ -22,21 +26,24 @@ private:
 
 	float resetTimer = 0.0f;
 
+	MATH::Vec3 ballDirection;//this is the directiono of the ball when it spawns
 	float defaultBallSpeed = 200;
 	float ballSpeed;
 
 	int lives = 3;
+	int scoreValue = 0;
+
+	//Player* player;
 
 	//Game Objects
 	//std::unique_ptr<Body> ball;//Body dedicated to ball
-	std::unique_ptr<Body> player;//Body dedicated to player
+	std::unique_ptr<Body> pin;//Body dedicated to player
 
 	std::vector<Body*> border;//Body array to store blocks that make up the border/frame
 	std::vector<Body*> blocks;//Body array dedicated to destructable blocks
 
 	std::vector<Body*> balls;
 
-	MATH::Vec3 ballDirection;//this is the directiono of the ball when it spawns
 
 	SDL_Renderer* screenRenderer;
 

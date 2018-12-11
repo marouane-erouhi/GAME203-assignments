@@ -1,0 +1,170 @@
+{
+    "player":{
+        "lives": 5,
+        "score": 1000
+    },
+    "blocks":[
+        {
+            "pos":{
+                "x":0,
+                "y":0
+            },
+            "dimentions":{
+                "x":20,
+                "y":20
+            },
+            "color":{
+                "r":255,
+                "g":100,
+                "b":32,
+                "a":255
+            },
+            "block_hp": 5,
+            "scoreIncrement": 20
+        },
+        {
+            "pos":{
+                "x":-30,
+                "y":0
+            },
+            "dimentions":{
+                "x":20,
+                "y":20
+            },
+            "color":{
+                "r":255,
+                "g":100,
+                "b":32,
+                "a":255
+            },
+            "block_hp": 5,
+            "scoreIncrement": 20
+        },
+        {
+            "pos":{
+                "x":-60,
+                "y":0
+            },
+            "dimentions":{
+                "x":20,
+                "y":20
+            },
+            "color":{
+                "r":255,
+                "g":100,
+                "b":32,
+                "a":255
+            },
+            "block_hp": 5,
+            "scoreIncrement": 20
+        },
+        {
+            "pos":{
+                "x":-90,
+                "y":0
+            },
+            "dimentions":{
+                "x":20,
+                "y":20
+            },
+            "color":{
+                "r":255,
+                "g":100,
+                "b":32,
+                "a":255
+            },
+            "block_hp": 5,
+            "scoreIncrement": 20
+        },
+        {
+            "pos":{
+                "x":-120,
+                "y":0
+            },
+            "dimentions":{
+                "x":20,
+                "y":20
+            },
+            "color":{
+                "r":255,
+                "g":100,
+                "b":32,
+                "a":255
+            },
+            "block_hp": 5,
+            "scoreIncrement": 20
+        },
+        {
+            "pos":{
+                "x":30,
+                "y":0
+            },
+            "dimentions":{
+                "x":20,
+                "y":20
+            },
+            "color":{
+                "r":255,
+                "g":100,
+                "b":32,
+                "a":255
+            },
+            "block_hp": 5,
+            "scoreIncrement": 20
+        },
+        {
+            "pos":{
+                "x":60,
+                "y":0
+            },
+            "dimentions":{
+                "x":20,
+                "y":20
+            },
+            "color":{
+                "r":255,
+                "g":100,
+                "b":32,
+                "a":255
+            },
+            "block_hp": 5,
+            "scoreIncrement": 20
+        },
+        {
+            "pos":{
+                "x":90,
+                "y":0
+            },
+            "dimentions":{
+                "x":20,
+                "y":20
+            },
+            "color":{
+                "r":255,
+                "g":100,
+                "b":32,
+                "a":255
+            },
+            "block_hp": 5,
+            "scoreIncrement": 20
+        },
+        {
+            "pos":{
+                "x":120,
+                "y":0
+            },
+            "dimentions":{
+                "x":20,
+                "y":20
+            },
+            "color":{
+                "r":255,
+                "g":100,
+                "b":32,
+                "a":255
+            },
+            "block_hp": 5,
+            "scoreIncrement": 20
+        }
+    ]
+}
